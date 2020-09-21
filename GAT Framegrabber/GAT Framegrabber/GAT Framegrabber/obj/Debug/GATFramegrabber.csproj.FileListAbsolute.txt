@@ -1,0 +1,89 @@
+C:\Users\kmcclintock\Desktop\GAT Frame Grab\FrameGrabber\FrameGrabber\bin\Debug\FrameGrabber.exe.config
+C:\Users\kmcclintock\Desktop\GAT Frame Grab\FrameGrabber\FrameGrabber\bin\Debug\FrameGrabber.exe
+C:\Users\kmcclintock\Desktop\GAT Frame Grab\FrameGrabber\FrameGrabber\bin\Debug\FrameGrabber.pdb
+C:\Users\kmcclintock\Desktop\GAT Frame Grab\FrameGrabber\FrameGrabber\obj\Debug\FrameGrabber.csprojAssemblyReference.cache
+C:\Users\kmcclintock\Desktop\GAT Frame Grab\FrameGrabber\FrameGrabber\obj\Debug\FrameGrabber.csproj.CoreCompileInputs.cache
+C:\Users\kmcclintock\Desktop\GAT Frame Grab\FrameGrabber\FrameGrabber\obj\Debug\FrameGrabber.exe
+C:\Users\kmcclintock\Desktop\GAT Frame Grab\FrameGrabber\FrameGrabber\obj\Debug\FrameGrabber.pdb
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\FrameGrabber.exe.config
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\FrameGrabber.exe
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\FrameGrabber.pdb
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\obj\Debug\GATFramegrabber.csprojAssemblyReference.cache
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\obj\Debug\GATFramegrabber.csproj.CoreCompileInputs.cache
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\obj\Debug\FrameGrabber.exe
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\obj\Debug\FrameGrabber.pdb
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CIPCompolet.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CIPMessaging.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CIPObjectLibrary.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CIPPortCompolet.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CommonCipService.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CompoletDataManager.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CompoletFramework.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\DataAccessCompolet.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\FgwCompolet.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\FgwDotnet.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\PLCData.exe
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\PLCDevice.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\SysmacCipService.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\SysmacCompolet.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\SysmacGatewayCompolet.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\VariableCompolet.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CIPCoreDotNet.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\PLCData.pdb
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\PLCData.exe.config
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\CIPCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\CIPObjectLibrary.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\CIPPortCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\CommonCipService.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\CompoletDataManager.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\CompoletFramework.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\DataAccessCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\FgwCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\FgwDotnet.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\PLCDevice.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\SysmacCipService.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\SysmacCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\SysmacGatewayCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\VariableCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\obj\Debug\GATFramegrabber.csproj.CopyComplete
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\FrameGrabber.exe.config
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\FrameGrabber.exe
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\FrameGrabber.pdb
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CIPCompolet.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CIPMessaging.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CIPObjectLibrary.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CIPPortCompolet.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CommonCipService.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CompoletDataManager.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CompoletFramework.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\DataAccessCompolet.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\FgwCompolet.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\FgwDotnet.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\PLCData.exe
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\PLCDevice.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\SysmacCipService.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\SysmacCompolet.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\SysmacGatewayCompolet.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\VariableCompolet.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\CIPCoreDotNet.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\PLCData.pdb
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\PLCData.exe.config
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\CIPCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\CIPObjectLibrary.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\CIPPortCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\CommonCipService.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\CompoletDataManager.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\CompoletFramework.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\DataAccessCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\FgwCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\FgwDotnet.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\PLCDevice.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\SysmacCipService.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\SysmacCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\SysmacGatewayCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\bin\Debug\ja\VariableCompolet.resources.dll
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\obj\Debug\GATFramegrabber.csprojAssemblyReference.cache
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\obj\Debug\GATFramegrabber.csproj.CoreCompileInputs.cache
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\obj\Debug\GATFramegrabber.csproj.CopyComplete
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\obj\Debug\FrameGrabber.exe
+C:\Users\kmcclintock\Desktop\JOBS\AP PLASMAN\50773\GAT Framegrabber\GAT Framegrabber\GAT Framegrabber\obj\Debug\FrameGrabber.pdb
