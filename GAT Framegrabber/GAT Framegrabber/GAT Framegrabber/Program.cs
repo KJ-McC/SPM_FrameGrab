@@ -217,93 +217,94 @@ namespace FrameGrabber
         {
                 while(true)
                 {
-                    String frameGrab0;
                     //Check for IO File from PLC Data project
                     if (File.Exists("C:\\Users\\kmcclintock\\Desktop\\FrameGrab_Out0.txt"))
                     {
                         try
                         {
-                            //Pass the file path and file name to the StreamReader constructor
-                            StreamReader str = new StreamReader("C:\\Users\\kmcclintock\\Desktop\\FrameGrab_Out0.txt");
-                            //Read the first line of text
-                            frameGrab0 = str.ReadLine();
-                            //Close file after reading
-                            str.Close();
-                            //If the first line is 1 run camera commands
 
-                            //If the first line is 1 run camera commands
-                            while (frameGrab0 == "1")
+                            //Timer to catch camera start failure
+                            DateTime testStart = DateTime.Now;
+                            DateTime startcameraTimeout = DateTime.Now.AddSeconds(3);
+
+
+                            //configure GAT
+                            WriteToGUI("Configuring hardware...", "", 8, 8);
+                            string configRsp = SendWebRequest("http://" + _ipAdress + "/cgi-bin/write?Channel=0&Type=Sierra_8bit&Mode=FrameGrabber");
+                            WriteGATResponseToGUI(configRsp);
+
+
+                            //bring up camera
+                            WriteToGUI("Bringing up camera...", "", 8, 8);
+                            string startRsp = SendWebRequest(BuildWebRequest("start"));
+                            WriteGATResponseToGUI(startRsp);
+
+                                //Check first letter in Start response for E = Error 
+                                bool result = startRsp[0].Equals('E');
+                                //if startRsp mentions error goto Finish 
+                                if (result == true)
 
                                 {
-                                //Timer to catch camera start failure
-                                DateTime testStart = DateTime.Now;
-                                DateTime startcameraTimeout = DateTime.Now.AddSeconds(3);
-
-                                // configure GAT
-                                WriteToGUI("Configuring hardware...", "", 8, 8);
-                                string configRsp = SendWebRequest("http://" + _ipAdress + "/cgi-bin/write?Channel=0&Type=Sierra_8bit&Mode=FrameGrabber");
-                                WriteGATResponseToGUI(configRsp);
+                                    goto Finish;
+                                }
 
                                 //Timeout if hardware doesn't config in 3 seconds
-                               if (DateTime.Now > startcameraTimeout)
-                               { 
-                                goto Finish;
-                               }
+                                if (DateTime.Now > startcameraTimeout)
+                                {
+                                    goto Finish;
+                                }
 
-                                // bring up camera
-                                WriteToGUI("Bringing up camera...", "", 8, 8);
-                                string startRsp = SendWebRequest(BuildWebRequest("start"));
-                                WriteGATResponseToGUI(startRsp);
-
-                                // get camera SN
-                                WriteToGUI("Getting camera serial number...", "", 8, 8);
-                                string cameraNVMRsp = SendWebRequest(BuildWebRequest("cameraNVM"));
-                                string sn = "";
+                            //get camera SN
+                            WriteToGUI("Getting camera serial number...", "", 8, 8);
+                            string cameraNVMRsp = SendWebRequest(BuildWebRequest("cameraNVM"));
+                            string sn = "";
                                 if (ParseNVMData(cameraNVMRsp, out List<byte> nvmData))
-                                    {
+                                {
                                     DecodeHeaderNVMData(ref nvmData, out sn, false);
                                     WriteToGUI(sn, "", 0, 0);
                                     Console.WriteLine("");
                                     Console.WriteLine("");
-                                    }
+                                }
 
-                                // change camera expsoure
-                                WriteToGUI("Changing camera expsosure to 2000...", "", 8, 8);
-                                string wrtExpRsp = SendWebRequest(BuildWebRequest("writemem?Target=Imager&Address.U16=0x3192&Data.U8[]=[7,208]"));
-                                WriteGATResponseToGUI(wrtExpRsp);
+                             //change camera expsoure
+                             WriteToGUI("Changing camera exposure to 2000...", "", 8, 8);
+                             string wrtExpRsp = SendWebRequest(BuildWebRequest("writemem?Target=Imager&Address.U16=0x3192&Data.U8[]=[7,208]"));
+                             WriteGATResponseToGUI(wrtExpRsp);
 
-                                // save png image
-                                WriteToGUI("Saving image data...", "", 8, 8);
-                                string fileLocPNG = GetImageFromWebRequest(BuildWebRequest("frameSave"), sn);
-                                WriteToGUI("Image saved to: ", fileLocPNG, 0, 16);
+                             //save png image
+                             WriteToGUI("Saving image data...", "", 8, 8);
+                             string fileLocPNG = GetImageFromWebRequest(BuildWebRequest("frameSave"), sn);
+                             WriteToGUI("Image saved to: ", fileLocPNG, 0, 16);
 
-                                // save bmp image
-                                System.Drawing.Image dummy = System.Drawing.Image.FromFile(fileLocPNG);
-                                string fileLocBMP = "C:\\Gentex Corporation\\GAT\\Current_Image.bmp";
-                                dummy.Save(fileLocBMP, System.Drawing.Imaging.ImageFormat.Bmp);
-                                WriteToGUI("Image saved to: ", fileLocBMP, 0, 16);
-                                Console.WriteLine("");
-                                Console.WriteLine("");
+                             //save bmp image
+                             System.Drawing.Image dummy = System.Drawing.Image.FromFile(fileLocPNG);
+                             string fileLocBMP = "C:\\Gentex Corporation\\GAT\\Current_Image.bmp";
+                             dummy.Save(fileLocBMP, System.Drawing.Imaging.ImageFormat.Bmp);
+                             WriteToGUI("Image saved to: ", fileLocBMP, 0, 16);
+                             Console.WriteLine("");
+                             Console.WriteLine("");
 
-                                // bring down camera
-                                WriteToGUI("Powering down camera...", "", 8, 8);
-                                string stopRsp = SendWebRequest(BuildWebRequest("stop"));
-                                WriteGATResponseToGUI(stopRsp);
+                             //bring down camera
+                             WriteToGUI("Powering down camera...", "", 8, 8);
+                             string stopRsp = SendWebRequest(BuildWebRequest("stop"));
+                             WriteGATResponseToGUI(stopRsp);
 
-                                // check timestamp of file to confirm the image is being replaced correctly
-                                DateTime lastWrite = File.GetLastWriteTimeUtc(fileLocBMP);
+                             //check timestamp of file to confirm the image is being replaced correctly
+                             DateTime lastWrite = File.GetLastWriteTimeUtc(fileLocBMP);
+
                                 if (testStart < lastWrite)
-                                    Console.WriteLine("DUT Passed");
-                                else
-                                    Console.WriteLine("DUT Failed");
+                                {
+                                    Console.WriteLine("Date&Time Passed");
+                                }
+                                else 
+                                { 
+                                    Console.WriteLine("Date&Time Failed"); 
+                                }
 
-                                Finish:
-                                //Delete the IO file to prevent errors
-                                File.Delete("C:\\Users\\kmcclintock\\Desktop\\FrameGrab_Out0.txt");
-                                frameGrab0 = "0";
-
-                            }
-
+                             Finish:
+                             //Delete the IO file to prevent errors
+                             File.Delete("C:\\Users\\kmcclintock\\Desktop\\FrameGrab_Out0.txt");
+                             Console.Clear();        
                         }
                         catch (Exception)
                         {                   
