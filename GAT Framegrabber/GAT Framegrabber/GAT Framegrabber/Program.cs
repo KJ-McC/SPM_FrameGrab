@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading;
 using Microsoft.SqlServer.Server;
 using OMRON.Compolet.CIP;
 using OMRON.Compolet.Variable;
@@ -13,7 +14,6 @@ namespace FrameGrabber
 {
     class Program
     {
-
 
         /// <summary>
         /// static ip address of GAT PC
@@ -210,111 +210,144 @@ namespace FrameGrabber
             Console.WriteLine("GAT Response:");
             Console.WriteLine(result);
         }
-    
+
         /// Program starts here  
         /// 
         static void Main()
         {
-                while(true)
+            while (true)
+            {
+
+                //Check for IO File from PLC Data project
+                if (File.Exists("C:\\Gentex Corporation\\GAT\\Images\\FrameGrab_Out0.txt"))
                 {
-                    String frameGrab0;
-                    //Check for IO File from PLC Data project
-                    if (File.Exists("C:\\Users\\kmcclintock\\Desktop\\FrameGrab_Out0.txt"))
+
+                    //Timer to catch camera start failure
+                    DateTime testStart = DateTime.Now;
+                    DateTime startcameraTimeout = DateTime.Now.AddSeconds(2);
+
+                    // configure GAT
+                    WriteToGUI("Configuring hardware...", "", 8, 8);
+                    string configRsp = SendWebRequest("http://" + _ipAdress + "/cgi-bin/write?Channel=0&Type=Sierra_8bit&Mode=FrameGrabber");
+                    WriteGATResponseToGUI(configRsp);
+
+                    // bring up camera
+                    WriteToGUI("Bringing up camera...", "", 8, 8);
+                    string startRsp = SendWebRequest(BuildWebRequest("start"));
+                    WriteGATResponseToGUI(startRsp);
+
+                    //If first letter of startRsp is E jump to end
+                    bool result;
+                    result = startRsp[0].Equals('E');
+                    if (result == true)
                     {
-                        try
-                        {
-                            //Pass the file path and file name to the StreamReader constructor
-                            StreamReader str = new StreamReader("C:\\Users\\kmcclintock\\Desktop\\FrameGrab_Out0.txt");
-                            //Read the first line of text
-                            frameGrab0 = str.ReadLine();
-                            //Close file after reading
-                            str.Close();
-                            //If the first line is 1 run camera commands
-
-                            //If the first line is 1 run camera commands
-                            while (frameGrab0 == "1")
-
-                                {
-                                //Timer to catch camera start failure
-                                DateTime testStart = DateTime.Now;
-                                DateTime startcameraTimeout = DateTime.Now.AddSeconds(3);
-
-                                // configure GAT
-                                WriteToGUI("Configuring hardware...", "", 8, 8);
-                                string configRsp = SendWebRequest("http://" + _ipAdress + "/cgi-bin/write?Channel=0&Type=Sierra_8bit&Mode=FrameGrabber");
-                                WriteGATResponseToGUI(configRsp);
-
-                                //Timeout if hardware doesn't config in 3 seconds
-                               if (DateTime.Now > startcameraTimeout)
-                               { 
-                                goto Finish;
-                               }
-
-                                // bring up camera
-                                WriteToGUI("Bringing up camera...", "", 8, 8);
-                                string startRsp = SendWebRequest(BuildWebRequest("start"));
-                                WriteGATResponseToGUI(startRsp);
-
-                                // get camera SN
-                                WriteToGUI("Getting camera serial number...", "", 8, 8);
-                                string cameraNVMRsp = SendWebRequest(BuildWebRequest("cameraNVM"));
-                                string sn = "";
-                                if (ParseNVMData(cameraNVMRsp, out List<byte> nvmData))
-                                    {
-                                    DecodeHeaderNVMData(ref nvmData, out sn, false);
-                                    WriteToGUI(sn, "", 0, 0);
-                                    Console.WriteLine("");
-                                    Console.WriteLine("");
-                                    }
-
-                                // change camera expsoure
-                                WriteToGUI("Changing camera expsosure to 2000...", "", 8, 8);
-                                string wrtExpRsp = SendWebRequest(BuildWebRequest("writemem?Target=Imager&Address.U16=0x3192&Data.U8[]=[7,208]"));
-                                WriteGATResponseToGUI(wrtExpRsp);
-
-                                // save png image
-                                WriteToGUI("Saving image data...", "", 8, 8);
-                                string fileLocPNG = GetImageFromWebRequest(BuildWebRequest("frameSave"), sn);
-                                WriteToGUI("Image saved to: ", fileLocPNG, 0, 16);
-
-                                // save bmp image
-                                System.Drawing.Image dummy = System.Drawing.Image.FromFile(fileLocPNG);
-                                string fileLocBMP = "C:\\Gentex Corporation\\GAT\\Current_Image.bmp";
-                                dummy.Save(fileLocBMP, System.Drawing.Imaging.ImageFormat.Bmp);
-                                WriteToGUI("Image saved to: ", fileLocBMP, 0, 16);
-                                Console.WriteLine("");
-                                Console.WriteLine("");
-
-                                // bring down camera
-                                WriteToGUI("Powering down camera...", "", 8, 8);
-                                string stopRsp = SendWebRequest(BuildWebRequest("stop"));
-                                WriteGATResponseToGUI(stopRsp);
-
-                                // check timestamp of file to confirm the image is being replaced correctly
-                                DateTime lastWrite = File.GetLastWriteTimeUtc(fileLocBMP);
-                                if (testStart < lastWrite)
-                                    Console.WriteLine("DUT Passed");
-                                else
-                                    Console.WriteLine("DUT Failed");
-
-                                Finish:
-                                //Delete the IO file to prevent errors
-                                File.Delete("C:\\Users\\kmcclintock\\Desktop\\FrameGrab_Out0.txt");
-                                frameGrab0 = "0";
-
-                            }
-
-                        }
-                        catch (Exception)
-                        {                   
-                        }
+                        File.Delete("C:\\Gentex Corporation\\GAT\\Current_Image.bmp");
+                        goto Finish;
                     }
+
+                    // get camera SN
+                    WriteToGUI("Getting camera serial number...", "", 8, 8);
+                    string cameraNVMRsp = SendWebRequest(BuildWebRequest("cameraNVM"));
+                    string sn = "";
+                    if (ParseNVMData(cameraNVMRsp, out List<byte> nvmData))
+                    {
+                        DecodeHeaderNVMData(ref nvmData, out sn, false);
+                        WriteToGUI(sn, "", 0, 0);
+                        Console.WriteLine("");
+                        Console.WriteLine("");
+
+                    }
+                    try
+                    {
+                        // write current SN to .txt file for PLC to display and Sherlock to double check
+                        StreamWriter sw = new StreamWriter("C:\\Gentex Corporation\\GAT\\CurrentCameraSN.txt");
+                        sw.WriteLine(sn);
+                        sw.Close();
+                    }
+                    catch (Exception)
+                    {
+                    }
+
+                    // change camera exposure
+                    WriteToGUI("Changing camera expsosure to 2000...", "", 8, 8);
+                    string wrtExpRsp = SendWebRequest(BuildWebRequest("writemem?Target=Imager&Address.U16=0x3192&Data.U8[]=[7,208]"));
+                    WriteGATResponseToGUI(wrtExpRsp);
+
+                    // save png image
+                    WriteToGUI("Saving image data...", "", 8, 8);
+                    string fileLocPNG = GetImageFromWebRequest(BuildWebRequest("frameSave"), sn);
+                    WriteToGUI("Image saved to: ", fileLocPNG, 0, 16);
+
+                    // save bmp image
+                    System.Drawing.Image dummy = System.Drawing.Image.FromFile(fileLocPNG);
+                    string fileLocBMP = "C:\\Gentex Corporation\\GAT\\Current_Image.bmp";
+                    dummy.Save(fileLocBMP, System.Drawing.Imaging.ImageFormat.Bmp);
+                    WriteToGUI("Image saved to: ", fileLocBMP, 0, 16);
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+
+                    // bring down camera
+                    WriteToGUI("Powering down camera...", "", 8, 8);
+                    string stopRsp = SendWebRequest(BuildWebRequest("stop"));
+                    WriteGATResponseToGUI(stopRsp);
+
+                    // check timestamp of file to confirm the image is being replaced correctly
+                    DateTime lastWrite = File.GetLastWriteTimeUtc(fileLocBMP);
+                    if (testStart < lastWrite)
+                    {
+                        Console.WriteLine("Date&Time Passed");
+                    }
+
                     else
                     {
-                     
+                        Console.WriteLine("Date&Time Failed");
+                    }
+
+                Finish:
+                    //Delete the IO file to prevent errors
+                    File.Delete("C:\\Gentex Corporation\\GAT\\Images\\FrameGrab_Out0.txt");
+
+                    //Console.Clear();
+                    //removed above to leave previous script on console
+
+                }
+                else
+                {
+
+                }
+
+                try
+                {
+                    // Cleaning of image folder to prevent overfilling computer
+                    string[] dirs = Directory.GetDirectories(@"C:\Gentex Corporation\GAT\Images");
+
+                    foreach (string dir in dirs)
+                    {
+                        DirectoryInfo dirInfo = new DirectoryInfo(dir);
+                        if (dirInfo.CreationTime < DateTime.Now.AddHours(-72))
+                        {
+                            //Delete files first
+                            string[] files = Directory.GetFiles(dir);
+                            foreach (string file in files)
+                            {
+                                File.Delete(file);
+                            }
+                            //Then delete directory
+                            Directory.Delete(dir, true);
+                        }
+
                     }
                 }
-            
+                catch (Exception)
+                {
+                }
+
+                //Small delay to slow looping
+                Thread.Sleep(250);
+
+
+            }
+
         }
     }
 }
